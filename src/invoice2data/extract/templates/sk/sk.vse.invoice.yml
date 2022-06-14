@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+issuer: Východoslovenská energetika a.s.
+keywords:
+  - Východoslovenská energetika a.s.
+  - '44483767'
+  - SK2023923660
+fields:
+  invoice_number: číslo\s+(\w+)
+  amount: NA ÚHRADU\s+(\d+,\d+)
+  date: Dátum vyhotovenia\s+(\d{2}\.\d{2}\.\d{4})
+  tax_date: Dátum dodania\s+(\d{2}\.\d{2}\.\d{4})
+  due_date: Dátum splatnosti\s+(\d{2}\.\d{2}\.\d{4})
+tables:
+  - start: Názov položky.*
+    end: Rozpis platieb za opakované dodávky podľa jednotlivých odberných miest
+    body: (?P<item_desc>.+)\s+(?P<tax_base>\d+,\d+)\s+(?P<vat_rate>\d+).*(?P<tax_amount>\d+,\d+)\s+(?P<total_amount>\d+,\d+)
+options:
+  currency: EUR
+  date_formats:
+    - '%d.%m.%Y'
+  decimal_separator: ','

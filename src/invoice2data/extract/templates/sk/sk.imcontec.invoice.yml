@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+issuer: VSE a.s.
+fields:
+  amount: NA\s+ÚHRADU\s+(\d+,\d+)
+  date: Dátum\s+vyhotovenia:(\d{2}\.\d{2}\.\d{4})
+  invoice_number: číslo\s+(\w+)
+  tax_date: Dátum dodania\s+(\d{2}\.\d{2}\.\d{4})
+  
+keywords:
+- Imcontec s.r.o.
+- SK2023923660
+options:
+  remove_whitespace: true
+  currency: EUR
+  date_formats:
+    - '%d.%m.%Y'
+  languages:
+    - fr
+  decimal_separator: ','
